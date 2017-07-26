@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.bytezone.dm3270</groupId>
+    <artifactId>dm3270-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>dm3270-utilities</module>
+        <module>dm3270-emulator</module>
+        <module>dm3270-database</module>
+        <module>dm3270-reporter</module>
+
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>dm3270 - tn3270 Terminal Emulator parent</name>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/mogalt/dm3270.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <properties>
+        <target.jdk>1.8</target.jdk>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.bytezone.dm3270</groupId>
+                <artifactId>dm3270-utilities</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.bytezone.dm3270</groupId>
+                <artifactId>dm3270-emulator</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${target.jdk}</source>
+                        <target>${target.jdk}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>
